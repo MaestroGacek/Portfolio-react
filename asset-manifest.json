@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MaestroGacek/Portfolio-react/static/css/main.f77d85e5.css",
+    "main.js": "/MaestroGacek/Portfolio-react/static/js/main.9c73fdb6.js",
+    "index.html": "/MaestroGacek/Portfolio-react/index.html",
+    "main.f77d85e5.css.map": "/MaestroGacek/Portfolio-react/static/css/main.f77d85e5.css.map",
+    "main.9c73fdb6.js.map": "/MaestroGacek/Portfolio-react/static/js/main.9c73fdb6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f77d85e5.css",
+    "static/js/main.9c73fdb6.js"
+  ]
+}
