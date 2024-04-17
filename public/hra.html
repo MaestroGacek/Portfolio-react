@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hra</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+
+<body>
+    <button onclick="spustHru()">Start</button>
+    <canvas id="herniPole" height="500" width="500"></canvas>
+
+
+
+    <script>
+
+        var x = 0
+
+        var y = 0
+
+        function spustHru() {
+            herniPole.start()
+            herniObjekt = new vytvorObjekt(20, 20, "red", 250, 280)
+            herniObjekt2 = new vytvorObjekt(5, 5, "blue", 50, 200)
+            herniObjekt3 = new vytvorObjekt(5, 5, "blue", 120, 220)
+            herniObjekt4 = new vytvorObjekt(5, 5, "blue", 200, 120)
+            herniObjekt5 = new vytvorObjekt(5, 5, "blue", 290, 800)
+            herniObjekt6 = new vytvorObjekt(5, 5, "blue", 350, 50)
+
+        }
+
+        var herniPole = {
+            canvas: document.getElementById("herniPole"),
+            start: function () {
+                this.context = this.canvas.getContext("2d")
+                this.interval = setInterval(vykresliHerniPole, 30)
+                window.addEventListener("keydown", function (event) {
+                    if (event.key === "ArrowRight") {
+                        if (herniObjekt.x < herniPole.canvas.width - herniObjekt.sirka) {
+                            herniObjekt.x += 20
+                        }
+                    }
+
+                    else if (event.key === "ArrowLeft") {
+
+                        if (herniObjekt.x > 0 + herniObjekt.sirka) {
+                            herniObjekt.x -= 20
+                        }
+
+                    }
+                    else if (event.key === "ArrowUp") {
+                        if (herniObjekt.y > 0 + herniObjekt.vyska) {
+                            herniObjekt.y -= 20
+                        }
+                      
+                    }
+                    else if (event.key === "ArrowDown") {
+                        if (herniObjekt.y < herniPole.canvas.height -  herniObjekt.vyska) {
+                            herniObjekt.y += 20
+                        }
+                    }
+                })
+
+            },
+
+            vymaz: function () {
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+            }
+
+        }
+        function vytvorObjekt(sirka, vyska, barva, souradniceX, souradniceY) {
+            this.sirka = sirka
+            this.vyska = vyska
+            this.x = souradniceX
+            this.y = souradniceY
+            this.puvodniX = souradniceX
+            this.puvodniY = souradniceY
+            this.barva = barva
+            this.vykresliObjekt = function () {
+                context = herniPole.context
+                context.fillStyle = barva
+                context.fillRect(this.x, this.y, this.sirka, this.vyska)
+            }
+            this.posunY = function (velikostPosunu) {
+                if (this.y <= 0) {
+                    this.y = this.puvodniY
+
+                }
+                else if (this.y >= herniPole.canvas.height) {
+                    this.y = 0
+                    this.x = Math.random() * herniPole.canvas.width
+                }
+
+                this.y -= velikostPosunu
+                this.vykresliObjekt()
+            }
+        }
+
+        function vykresliHerniPole() {
+            // new vytvorObjekt(20, 20, "red", x +=30, y += 30)
+            // context.clearRect(0, 0, herniPole.canvas.width, herniPole.canvas.height)
+            herniPole.vymaz()
+            herniObjekt.vykresliObjekt()
+            herniObjekt2.posunY(-10)
+            herniObjekt3.posunY(-10)
+            herniObjekt4.posunY(-10)
+            herniObjekt5.posunY(-10)
+            herniObjekt6.posunY(-10)
+
+
+            // context = herniPole.context
+            // context.fillStyle = herniObjekt.barva
+            // context.fillRect(herniObjekt.x, herniObjekt.y, herniObjekt.sirka, herniObjekt.vyska)
+
+            if (herniObjekt.y <= 0) {
+                herniObjekt.y = herniObjekt.puvodniY
+            }
+        }
+
+        /*
+                var clovek = {
+        
+                    jmeno: "Jan",
+                    prijmeni: "Kohout",
+        
+                    vypisJmenoAPrijmeni : function() {
+                        window.alert(this.jmeno + " " + this.prijmeni)
+                    },
+        
+                    vypisDoKonzole : function() {
+                        console.log(this)
+                    }
+                }
+        
+                function spustHru() {
+                    clovek.vypisJmenoAPrijmeni()
+                    clovek.vypisDoKonzole()
+                }
+                */
+
+    </script>
+</body>
+
+</html>

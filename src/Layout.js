@@ -25,7 +25,8 @@ const Layout = (props) => {
                     <li style={{ listStyleType: "none" }}><MuiLink href="/Portfolio-react/#/eshop2" underline="none" variant="h6" style={{ color: props.barva }}>E-shop2</MuiLink></li>
                     <li style={{ listStyleType: "none" }}><MuiLink href="/Portfolio-react/#/eshop3" underline="none" variant="h6" style={{ color: props.barva }}>E-shop3</MuiLink></li>
                     <li style={{ listStyleType: "none" }}><MuiLink href="/Portfolio-react/#/barva" underline="none" variant="h6" style={{ color: props.barva }}>Barva</MuiLink></li>
-                    <li style={{ listStyleType: "none" }}><MuiLink href="/Portfolio-react/#/penize" underline="none" variant="h6" style={{ color: props.barva }}>DONATE</MuiLink></li></nav><Outlet></Outlet>
+                    <li style={{ listStyleType: "none" }}><MuiLink href="/Portfolio-react/#/penize" underline="none" variant="h6" style={{ color: props.barva }}>DONATE</MuiLink></li>
+                    <li style={{ listStyleType: "none" }}><MuiLink href="/Portfolio-react/#/hra" underline="none" variant="h6" style={{ color: props.barva }}>Hra</MuiLink></li></nav><Outlet></Outlet>
             </Typography>
         </>
     )
